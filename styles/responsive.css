@@ -8,6 +8,10 @@
         text-align: center;
     }
 
+    #page-home header img {
+        flex: 1;
+    }
+    
     #page-home header a {
         position: absolute;
         bottom: 48px;
@@ -18,6 +22,14 @@
 
     #page-home main {
         align-items: center;
+    }
+
+    #page-search-results .cards {
+        grid-template-columns: 1fr;
+    }
+
+    #page-search-results .cards img {
+        height: 250px;
     }
 }
 
