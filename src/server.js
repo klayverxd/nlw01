@@ -30,17 +30,17 @@ server.get("/", (req, res) => {
     // variável global (diretório) concatenada com o caminho da pagina desejada
     // 0.1 - res.sendFile(__dirname + "/views/index.html")
     // 0.2 - depois que já temos o nunjucks configurado ligado ao express
-    return res.render("index.html", { title: "Um título" })
+    res.render("index.html", { title: "Um título" })
 })
 
 server.get("/create-point", (req, res) => {
     // variável global (diretório) concatenada com o caminho da pagina desejada
     // 0.1 - res.sendFile(__dirname + "/views/create-point.html")
-    return res.render("create-point.html")
+    res.render("create-point.html")
 })
 
 server.get("/search", (req, res) => {
-    return res.render("search-results.html")
+    res.render("search-results.html")
 })
 
 

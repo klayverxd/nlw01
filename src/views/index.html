@@ -1,50 +1,41 @@
-<!DOCTYPE html>
-<html lang="pt_br">
+{# herdando o que está no layout.html #}
+{% extends "layout.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% set pageId = "page-home" %}
 
-    <title>Ecoleta</title>
-
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&family=Ubuntu:wght@700&display=swap" rel="stylesheet">
-
-
-    <link rel="stylesheet" href="/styles/main.css">
+{% block styles %}
     <link rel="stylesheet" href="/styles/home.css">
     <link rel="stylesheet" href="/styles/modal.css">
+{% endblock styles %}
 
-    <link rel="stylesheet" href="/styles/responsive.css">
+{% block content %}
+    <div class="content">
 
-</head>
+        <header>
+            <img src="/extras-aula-1/icones/logo.svg" alt="Logomarca">
+            <a href="/create-point">
+                <span></span>
+                Cadastre um ponto de coleta</a>
+        </header>
 
-<body>
+        <main>
+            <h1>Seu marketplace de coleta de resíduos</h1>
 
-    <div id="page-home">
+            <p>Ajudamos pessoas a encontrarem pontos de coleta de forma eficiente.</p>
 
-        <div class="content">
+            <a href="#">
+                <span></span>
+                <strong>Pesquisar pontos de coleta</strong>
+            </a>
+        </main>
 
-            <header>
-                <img src="/extras-aula-1/icones/logo.svg" alt="Logomarca">
-                <a href="/create-point">
-                    <span></span> Cadastre um ponto de coleta</a>
-            </header>
-
-            <main>
-                <h1>Seu marketplace de coleta de resíduos</h1>
-
-                <p>Ajudamos pessoas a encontrarem pontos de coleta de forma eficiente.</p>
-
-                <a href="#">
-                    <span></span> <strong>Pesquisar pontos de coleta</strong></a>
-            </main>
-
-        </div>
     </div>
+{% endblock content %}
 
+{% block modal %}
     {% include "partials/modal.html" %}
+{% endblock modal %}
 
+{% block scripts %}
     <script src="/scripts/index.js"></script>
-</body>
-
-</html>
+{% endblock scripts %}
