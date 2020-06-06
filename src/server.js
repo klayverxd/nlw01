@@ -7,7 +7,7 @@
 
 // importando o express (do node_modules)
 const express = require("express")
-// um objeto
+    // um objeto
 const server = express()
 
 // configurar pasta pública
@@ -16,7 +16,7 @@ server.use(express.static("public"))
 
 // "pedindo" template engine (do node_modules)
 const nunjucks = require("nunjucks")
-// configurando o nunjucks mostrando a pagina inicial do projeto e passando o caminho do servidor e tirando o cache
+    // configurando o nunjucks mostrando a pagina inicial do projeto e passando o caminho do servidor e tirando o cache
 nunjucks.configure("src/views", {
     express: server,
     noCache: true
@@ -30,13 +30,17 @@ server.get("/", (req, res) => {
     // variável global (diretório) concatenada com o caminho da pagina desejada
     // 0.1 - res.sendFile(__dirname + "/views/index.html")
     // 0.2 - depois que já temos o nunjucks configurado ligado ao express
-    return res.render("index.html")
+    return res.render("index.html", { title: "Um título" })
 })
 
 server.get("/create-point", (req, res) => {
     // variável global (diretório) concatenada com o caminho da pagina desejada
     // 0.1 - res.sendFile(__dirname + "/views/create-point.html")
     return res.render("create-point.html")
+})
+
+server.get("/search", (req, res) => {
+    return res.render("search-results.html")
 })
 
 
