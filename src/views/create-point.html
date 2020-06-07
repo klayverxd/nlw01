@@ -8,12 +8,13 @@
 
 {% block styles %}
     <link rel="stylesheet" href="/styles/create-point.css">
+    <link rel="stylesheet" href="/styles/modal.css">
 {% endblock styles %}
 
 {% block content %}
     {% include "partials/page-header.html" %}
 
-    <form action="">
+    <form action="/savepoint" method="POST">
 
         <h1>Cadastro do ponto de coleta</h1>
 
@@ -36,19 +37,14 @@
             </div>
 
             <!-- required - obrigatório o preenchimento do campo -->
-            <div class="field">
-                <label for="name">Nome da entidade</label>
-                <input type="text" name="name" required="required">
-            </div>
-
             <div class="field-group">
                 <div class="field">
                     <label for="address">Endereço</label>
                     <input type="text" name="address" required="required">
                 </div>
                 <div class="field">
-                    <label for="address">Número/Complemento</label>
-                    <input type="text" name="address" required="required">
+                    <label for="address2">Número/Complemento</label>
+                    <input type="text" name="address2" required="required">
                 </div>
             </div>
 
@@ -81,29 +77,29 @@
 
             <div class="items-grid">
                 <!-- data é um identificador -->
-                <li data-id="1">
+                <li data-id="Lâmpadas">
                     <img src="/extras-aula-1/icones/lampadas.svg" alt="Lâmpadas">
                     <span>Lâmpadas</span>
                 </li>
-                <li data-id="2">
+                <li data-id="Pilhas e Baterias">
                     <img src="/extras-aula-1/icones/baterias.svg" alt="Pilhas e Baterias">
                     <span>Pilhas e Baterias</span>
                 </li>
-                <li data-id="3">
+                <li data-id="Papeis e Papelão">
                     <img src="/extras-aula-1/icones/papeis-papelao.svg" alt="Papeis e Papelão">
                     <span>Papeis e Papelão</span>
                 </li>
-                <li data-id="4">
+                <li data-id="Resíduos Eletrônicos">
                     <img src="/extras-aula-1/icones/eletronicos.svg" alt="Resíduos Eletrônicos">
                     <span>Resíduos Eletrônicos</span>
                 </li>
-                <li data-id="5">
+                <li data-id="Resíduos Orgânicos">
                     <img src="/extras-aula-1/icones/organicos.svg" alt="Resíduos Orgânicos">
                     <span>Resíduos Orgânicos</span>
                 </li>
-                <li data-id="6">
+                <li data-id="Óleo de cozinha">
                     <img src="/extras-aula-1/icones/oleo.svg" alt="Óleo de Cozinha">
-                    <span>Lâmpadas</span>
+                    <span>Óleo de cozinha</span>
                 </li>
             </div>
             <input type="hidden" name="items">
@@ -113,7 +109,14 @@
         <button type="submit">Cadastrar ponto de coleta</button>
 
     </form>
+
 {% endblock content %}
+
+{% block modal %}
+    {% if saved %}
+        {%include "partials/point-created.html"%}
+    {% endif %}
+{% endblock modal %}
 
 {% block scripts %}
     <script src="/scripts/create-point.js"></script>
