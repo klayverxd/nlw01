@@ -6,7 +6,7 @@ const db = new sqlite3.Database("./src/database/database.db")
 
 module.exports = db
 
-// utilizar o objeto de banco de dados, para as nossas operaçãoes
+// utilizar o objeto de banco de dados, para as operaçãoes
 db.serialize(() => {
     // Com comandos SQL:
 
